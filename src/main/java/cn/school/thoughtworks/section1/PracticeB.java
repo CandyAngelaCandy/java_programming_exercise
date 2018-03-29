@@ -1,5 +1,6 @@
 package cn.school.thoughtworks.section1;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PracticeB {

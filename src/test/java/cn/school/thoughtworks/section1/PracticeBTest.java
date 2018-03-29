@@ -26,5 +26,6 @@ public class PracticeBTest {
         List<String> result = practiceB.collectSameElements(collection1, collection2);
         List<String> expectedResult = Arrays.asList("a", "e", "f", "d");
         assertEquals(result, expectedResult);
+
     }
 }
