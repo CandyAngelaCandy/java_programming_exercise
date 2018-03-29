@@ -8,12 +8,12 @@ import java.util.Map;
 public class PracticeC {
 
     Map<String, Integer> countSameElements(List<String> collection1) {
-        //实现练习要求，并改写该行代码。
+
         Map<String, Integer> calSameEleNumInc1 = new HashMap<String, Integer>();
 
         for (String s1 : collection1) {
 
-            //对键值处理
+            //deal key value
             if (isContainsSpecEle(s1)) {
                 dealSpecListEle(calSameEleNumInc1, s1);
                 continue;
