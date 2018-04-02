@@ -10,9 +10,25 @@ public class PracticeC {
 
         Map<String, Integer> collection3 = countSameElements(collectionA);
 
-        List<String> speValEleInObj = object.get("value");
+        for (String key : object.keySet()) {
 
-        for (String s1 : speValEleInObj) {
+            if ("value".equals(key)) {
+                List<String> eleOfSpeKeyValInObj = object.get(key);
+
+                updateCollectInKeyIsValue(collection3, eleOfSpeKeyValInObj);
+
+            } else {
+                continue;
+            }
+        }
+
+
+        return collection3;
+
+    }
+
+    private void updateCollectInKeyIsValue(Map<String, Integer> collection3, List<String> eleOfSpeKeyValInObj) {
+        for (String s1 : eleOfSpeKeyValInObj) {
             boolean isContains = collection3.containsKey(s1);
 
             if (isContains) {
@@ -23,9 +39,6 @@ public class PracticeC {
                 collection3.put(s1, speEleNum);
             }
         }
-
-        return collection3;
-
     }
 
     private Map<String, Integer> countSameElements(List<String> collectionA) {

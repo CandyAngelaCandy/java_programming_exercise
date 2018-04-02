@@ -1,19 +1,29 @@
 package cn.school.thoughtworks.section1;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class PracticeB {
     List<String> collectSameElements(List<String> collection1, List<List<String>> collection2) {
 
-        List<String> aList1 = new ArrayList<String>();
-        List<String> subarrayEleInc2 = collection2.get(0);
+        List<String> sameEleInC1AndC2 = new ArrayList();
+        HashMap<String, Integer> removeDuplicatedEleInc2 = new HashMap();
 
-        for (String s1 : collection1) {
-            aList1.add(s1);
+        for (List<String> subListInC2 : collection2) {
+            for (String eleOfSubListInC2 : subListInC2) {
+
+                if (!removeDuplicatedEleInc2.containsKey(eleOfSubListInC2)) {
+                    removeDuplicatedEleInc2.put(eleOfSubListInC2, 1);
+                }
+            }
         }
 
-        aList1.retainAll(subarrayEleInc2);
-        return aList1;
+        for (String subEleInC1 : collection1) {
+            if (removeDuplicatedEleInc2.containsKey(subEleInC1)) {
+                sameEleInC1AndC2.add(subEleInC1);
+            }
+
+        }
+
+        return sameEleInC1AndC2;
     }
 }

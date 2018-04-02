@@ -6,9 +6,23 @@ import java.util.Map;
 public class PracticeB {
     Map<String, Integer> createUpdatedCollection(Map<String, Integer> collectionA, Map<String, List<String>> object) {
 
-        List<String> speValEleInObj = object.get("value");
+        for (String key : object.keySet()) {
 
-        for (String s1 : speValEleInObj) {
+            if ("value".equals(key)) {
+                List<String> eleOfSpeKeyValInObj = object.get(key);
+
+                updateCollectionBasedValue(collectionA, eleOfSpeKeyValInObj);
+
+            } else {
+                continue;
+            }
+        }
+
+        return collectionA;
+    }
+
+    private void updateCollectionBasedValue(Map<String, Integer> collectionA, List<String> eleOfSpeKeyValInObj) {
+        for (String s1 : eleOfSpeKeyValInObj) {
             boolean isContains = collectionA.containsKey(s1);
 
             if (isContains) {
@@ -18,7 +32,5 @@ public class PracticeB {
                 collectionA.put(s1, speEleNum);
             }
         }
-
-        return collectionA;
     }
 }

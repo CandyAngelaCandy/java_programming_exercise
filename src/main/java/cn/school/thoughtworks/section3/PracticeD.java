@@ -9,9 +9,25 @@ public class PracticeD {
 
         Map<String, Integer> collection3 = countSameElements(collectionA);
 
-        List<String> speValEleInObj = object.get("value");
+        for (String key : object.keySet()) {
 
-        for (String s1 : speValEleInObj) {
+            if ("value".equals(key)) {
+                List<String> eleOfSpeKeyValInObj = object.get(key);
+
+                updateCollectionInKeyIsValue(collection3, eleOfSpeKeyValInObj);
+
+            } else {
+                continue;
+            }
+        }
+
+
+        return collection3;
+
+    }
+
+    private void updateCollectionInKeyIsValue(Map<String, Integer> collection3, List<String> eleOfSpeKeyValInObj) {
+        for (String s1 : eleOfSpeKeyValInObj) {
             boolean isContains = collection3.containsKey(s1);
 
             if (isContains) {
@@ -21,9 +37,6 @@ public class PracticeD {
                 collection3.put(s1, speEleNum);
             }
         }
-
-        return collection3;
-
     }
 
     private Map<String, Integer> countSameElements(List<String> collectionA) {
@@ -37,7 +50,7 @@ public class PracticeD {
                 int speEleNum = calSameEleNumInCa.get(s1) + 1;
                 calSameEleNumInCa.put(s1, speEleNum);
             } else {
-                //对Key值处理
+
                 if (s1.indexOf("-") != -1) {
 
                     String[] divideArrBasedLine = s1.split("-");

@@ -10,21 +10,15 @@ public class PracticeA {
 
     List<String> collectSameElements(List<String> collection1, List<String> collection2) {
 
-        List<String> aList1 = new ArrayList<String>();
-        List<String> aList2 = new ArrayList<String>();
+        List<String> sameEleInC1AndC2 = new ArrayList();
 
-        for (String s1 : collection1) {
-            aList1.add(s1);
+        for (String eleInC1 : collection1) {
+
+            if (collection2.contains(eleInC1)) {
+                sameEleInC1AndC2.add(eleInC1);
+            }
         }
 
-
-        for (String s2 : collection2) {
-            aList2.add(s2);
-
-        }
-
-        aList1.retainAll(aList2);
-
-        return aList1;
+        return sameEleInC1AndC2;
     }
 }
